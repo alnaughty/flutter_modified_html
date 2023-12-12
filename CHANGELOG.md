@@ -1,73 +1,10 @@
-# Change Log
+## [2.2.4] - September 27, 2023
+** Updated webview depencies to latest version
+** Updated src params
 
-#### 3.0.0-beta.2 *May 2023*
+## [2.2.2]
+* Migrated
 
- - Several Breaking Changes. See the [migration guide](https://github.com/Sub6Resources/flutter_html/wiki/Migration-Guides#300)
-
- - **FIX**: start list items on a new line ([#1281](https://github.com/sub6resources/flutter_html/issues/1281)). ([496d1aa8](https://github.com/sub6resources/flutter_html/commit/496d1aa8e655891d2f597c5e4d7e92057801d815))
- - **FIX**: Add "display: Display.block" to table ([#1278](https://github.com/sub6resources/flutter_html/issues/1278)). ([6350f023](https://github.com/sub6resources/flutter_html/commit/6350f02354b7de601ce294123717e2051be97eee))
- - **FIX**: improve API for ExtensionContext and export marker.dart ([#1273](https://github.com/sub6resources/flutter_html/issues/1273)). ([27e33a95](https://github.com/sub6resources/flutter_html/commit/27e33a955e872d47306db9480f74f6da2e9a028a))
- - **FIX**: Cleaned up whitespace processing and added whitespace tests ([#1267](https://github.com/sub6resources/flutter_html/issues/1267)). ([cc00406b](https://github.com/sub6resources/flutter_html/commit/cc00406b1d0c115e5c66dd4bdfb40db32496f55f))
- - **FIX**: a tag should not style as link if href is not provided ([#1265](https://github.com/sub6resources/flutter_html/issues/1265)). ([d7247cb3](https://github.com/sub6resources/flutter_html/commit/d7247cb303c25d0011f85f9b2d3687924de3d83d))
- - **FEAT**: Update CssBoxWidget to handle rtl marker boxes ([#1270](https://github.com/sub6resources/flutter_html/issues/1270)). ([d7091990](https://github.com/sub6resources/flutter_html/commit/d7091990d193e892e2f782ac8d91fc0326aff4bc))
- - **FEAT**: support vertical-align in inline styles ([#1266](https://github.com/sub6resources/flutter_html/issues/1266)). ([fe896de5](https://github.com/sub6resources/flutter_html/commit/fe896de5ed8b79425bb33800a26fa4ac328057fe))
- - **FEAT**: Add WrapperExtension helper ([#1264](https://github.com/sub6resources/flutter_html/issues/1264)). ([2ffa1dda](https://github.com/sub6resources/flutter_html/commit/2ffa1ddabb3f2a660ab85c551255b89fe8a24ab5))
-
-
-#### 3.0.0-beta.1 - *May 2023*
-
- - Several Breaking Changes. See the [migration guide](https://github.com/Sub6Resources/flutter_html/wiki/Migration-Guides#300)
-
- - **FIX**: Aspect ratio exception when height is 0 ([#1222](https://github.com/sub6resources/flutter_html/issues/1222)). ([ed75f8fe](https://github.com/sub6resources/flutter_html/commit/ed75f8fef779e920ecc1f27719a4150a29e3ebee))
- - **FIX**: Fix issue with font scaling introduced in 3.0.0-alpha.6 ([#1173](https://github.com/sub6resources/flutter_html/issues/1173)). ([c75e0dfb](https://github.com/sub6resources/flutter_html/commit/c75e0dfb1be6cb79748f719487043d12bc330c60))
- - **FIX**: Fix various issues with list rendering. ([520ff3c3](https://github.com/sub6resources/flutter_html/commit/520ff3c326d5dc8f5a601022c2a32d58e2e83cbb))
- - **FIX**: Apply margins to <table> properly. ([7581ea79](https://github.com/sub6resources/flutter_html/commit/7581ea798744b2830affaaf75bbdff016b03f7af))
- - **FIX**: Use enum instead of const int internally in length.dart. ([9dc7f08c](https://github.com/sub6resources/flutter_html/commit/9dc7f08ca238ff6a93314be5de716ad4e3baebb8))
- - **FIX**: Change CSSBoxWidget to CssBoxWidget. ([a62449a7](https://github.com/sub6resources/flutter_html/commit/a62449a77c18701a0faf8ffd650f9c535b2d006c))
- - **FEAT**: Support mmultiscripts. ([#1175](https://github.com/sub6resources/flutter_html/issues/1175)). ([a999a300](https://github.com/sub6resources/flutter_html/commit/a999a30027eff0aabb2825ffdbe383f9affab7f6))
- - **FEAT**: Support mfenced. ([#1174](https://github.com/sub6resources/flutter_html/issues/1174)). ([9ca23084](https://github.com/sub6resources/flutter_html/commit/9ca230848beb15332f96294083ed4989831130d7))
- - **FEAT**: Upgrade list-style-type to CSS3. ([deb726ae](https://github.com/sub6resources/flutter_html/commit/deb726ae2776f45305026c0aa081d4a5b5a1c71d))
- - **FEAT**: Support mtable, mtd, mtr for draw matrix. ([#1164](https://github.com/sub6resources/flutter_html/issues/1164)). ([e99e2cc1](https://github.com/sub6resources/flutter_html/commit/e99e2cc1553ab17b4ceff08f784e99283b28dff4))
-
-## 3.0.0-alpha.6 - *September 2022*
-
- - **FIX** #731 Resolve newline `<br>` issue
- - **FIX** Align the baseline of inline content with the baseline of its parent flow, even if it has padding or borders
- - **FIX** Improved fontSize inheritance when cascading styles
- - **FIX** `auto` margins now work for any `Display.BLOCK` element.
- - **FIX** `auto` width and height is now the default, rather than `null`
- - **FIX** New CSSBoxWidget that handles calculations of child sizes for a more accurate HTML/CSS layout
- - **BREAKING** New `Margin`, `Height`, and `Width` classes that allow `em`, `rem`, `px`, `auto`, and `%` values to be given
- - **FEAT** Negative margins are now allowed
- - **FIX** Updated default `p` and `h1-6` styles to use `em` for better font scaling
- - **BREAKING** Package now requires Dart sdk >= Dart 2.17
- - **FIX**: Apply margins to <table> properly. (7581ea79)
- - **FIX**: Use enum instead of const int internally in length.dart. (9dc7f08c)
- - **FIX**: Change CSSBoxWidget to CssBoxWidget. (a62449a7)
- - **FIX**: fix textShadow color declaration handler. (77ffe7cb)
- - **FIX**: ol use default style. (1c2412a2)
- - **FIX**: Crash when a tr tag includes text node. (ba8301c9)
- - **FEAT**: exposes fontFamilyFallback parameter. (1d65aafd)
-
-## [3.0.0-alpha.5] - June 9, 2022:
-* Fixed hot reloads, thanks @arjenmels
-* Fixed link taps not working
-* Improvements in README
-
-## [3.0.0-alpha.3] - April 14, 2022:
-* Fixed styling not being applied to list item markers
-* [video] Fixed crash when iframe or video tags used unsupported/incorrect height or width
-
-## [3.0.0-alpha.2] - January 5, 2022:
-* **BREAKING** Full modularization using split packages; see our upgrade guide or use flutter_html_all 
-
-## [3.0.0-alpha.1] - December 21, 2021:
-* **BREAKING** Reworked custom renders pending full modularation in 3.0.0
-* Extended support custom render when using SelectableHtml
-* Updated flutter_svg to 1.0.0
-* Support flutter_webview 3.x
-* Automatic disposal of video and audio controllers
-* Fix block elements bottom spacing in table cells
 
 ## [2.2.1] - December 8, 2021:
 * Allow styling on ruby tags
