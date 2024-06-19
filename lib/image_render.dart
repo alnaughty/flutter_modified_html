@@ -25,7 +25,7 @@ ImageSourceMatcher dataUriMatcher(
     };
 
 ImageSourceMatcher networkSourceMatcher({
-  List<String> schemas: const ["https", "http"],
+  List<String> schemas = const ["https", "http"],
   List<String>? domains,
   String? extension,
 }) =>
@@ -124,7 +124,8 @@ ImageRender networkImageRender({
         });
 
         ImageStreamListener? listener;
-        listener = ImageStreamListener((ImageInfo imageInfo, bool synchronousCall) {
+        listener =
+            ImageStreamListener((ImageInfo imageInfo, bool synchronousCall) {
           var myImage = imageInfo.image;
           Size size = Size(myImage.width.toDouble(), myImage.height.toDouble());
           if (!completer.isCompleted) {

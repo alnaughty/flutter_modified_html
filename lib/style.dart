@@ -236,16 +236,17 @@ class Style {
   }
 
   static Map<String, Style> fromThemeData(ThemeData theme) => {
-    'h1': Style.fromTextStyle(theme.textTheme.headline1!),
-    'h2': Style.fromTextStyle(theme.textTheme.headline2!),
-    'h3': Style.fromTextStyle(theme.textTheme.headline3!),
-    'h4': Style.fromTextStyle(theme.textTheme.headline4!),
-    'h5': Style.fromTextStyle(theme.textTheme.headline5!),
-    'h6': Style.fromTextStyle(theme.textTheme.headline6!),
-    'body': Style.fromTextStyle(theme.textTheme.bodyText2!),
-  };
+        'h1': Style(fontSize: FontSize(34)),
+        'h2': Style(fontSize: FontSize(30)),
+        'h3': Style(fontSize: FontSize(21)),
+        'h4': Style(fontSize: FontSize(18)),
+        'h5': Style(fontSize: FontSize(16)),
+        'h6': Style(fontSize: FontSize(14.5)),
+        'body': Style(fontSize: FontSize(13.5)),
+      };
 
-  static Map<String, Style> fromCss(String css, OnCssParseError? onCssParseError) {
+  static Map<String, Style> fromCss(
+      String css, OnCssParseError? onCssParseError) {
     final declarations = parseExternalCss(css, onCssParseError);
     Map<String, Style> styleMap = {};
     declarations.forEach((key, value) {
@@ -325,18 +326,24 @@ class Style {
   }
 
   Style copyOnlyInherited(Style child) {
-    FontSize? finalFontSize = child.fontSize != null ?
-      fontSize != null && child.fontSize?.units == "em" ?
-        FontSize(child.fontSize!.size! * fontSize!.size!) : child.fontSize
-      : fontSize != null && fontSize!.size! < 0 ?
-        FontSize.percent(100) : fontSize;
-    LineHeight? finalLineHeight = child.lineHeight != null ?
-      child.lineHeight?.units == "length" ?
-        LineHeight(child.lineHeight!.size! / (finalFontSize == null ? 14 : finalFontSize.size!) * 1.2) : child.lineHeight
-      : lineHeight;
+    FontSize? finalFontSize = child.fontSize != null
+        ? fontSize != null && child.fontSize?.units == "em"
+            ? FontSize(child.fontSize!.size! * fontSize!.size!)
+            : child.fontSize
+        : fontSize != null && fontSize!.size! < 0
+            ? FontSize.percent(100)
+            : fontSize;
+    LineHeight? finalLineHeight = child.lineHeight != null
+        ? child.lineHeight?.units == "length"
+            ? LineHeight(child.lineHeight!.size! /
+                (finalFontSize == null ? 14 : finalFontSize.size!) *
+                1.2)
+            : child.lineHeight
+        : lineHeight;
     return child.copyWith(
-      backgroundColor: child.backgroundColor != Colors.transparent ?
-        child.backgroundColor : backgroundColor,
+      backgroundColor: child.backgroundColor != Colors.transparent
+          ? child.backgroundColor
+          : backgroundColor,
       color: child.color ?? color,
       direction: child.direction ?? direction,
       display: display == Display.NONE ? display : child.display,
@@ -350,9 +357,10 @@ class Style {
       listStyleType: child.listStyleType ?? listStyleType,
       listStylePosition: child.listStylePosition ?? listStylePosition,
       textAlign: child.textAlign ?? textAlign,
-      textDecoration: TextDecoration.combine(
-          [child.textDecoration ?? TextDecoration.none,
-            textDecoration ?? TextDecoration.none]),
+      textDecoration: TextDecoration.combine([
+        child.textDecoration ?? TextDecoration.none,
+        textDecoration ?? TextDecoration.none
+      ]),
       textShadow: child.textShadow ?? textShadow,
       whiteSpace: child.whiteSpace ?? whiteSpace,
       wordSpacing: child.wordSpacing ?? wordSpacing,
@@ -534,9 +542,11 @@ class ListStyleType {
 
   const ListStyleType(this.text, {this.type = "marker", this.widget});
 
-  factory ListStyleType.fromImage(String url) => ListStyleType(url, type: "image");
+  factory ListStyleType.fromImage(String url) =>
+      ListStyleType(url, type: "image");
 
-  factory ListStyleType.fromWidget(Widget widget) => ListStyleType("", widget: widget, type: "widget");
+  factory ListStyleType.fromWidget(Widget widget) =>
+      ListStyleType("", widget: widget, type: "widget");
 
   static const LOWER_ALPHA = ListStyleType("LOWER_ALPHA");
   static const UPPER_ALPHA = ListStyleType("UPPER_ALPHA");
