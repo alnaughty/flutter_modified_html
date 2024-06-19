@@ -1,3 +1,6 @@
+## [3.0.0] - June 20, 2024
+** migrated to latest flutter sdk
+
 ## [2.2.4] - September 27, 2023
 ** Updated webview depencies to latest version
 ** Updated src params
